@@ -1,8 +1,8 @@
 spring:
   datasource:
-    username: root
-    password: 1234
-    url: jdbc:postgresql://localhost:5432/necromancerfm
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
   jpa:
     hibernate:
       ddl-auto: update
