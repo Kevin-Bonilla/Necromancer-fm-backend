@@ -1,9 +1,15 @@
 services:
-  postgres:
+  # Our PostgreSQL DB
+  NecromancerfmDB:
+    # docker image of postgres
     image: 'postgres:latest'
     environment:
       - 'POSTGRES_DB=${DB_NAME}'
       - 'POSTGRES_PASSWORD=${DB_PASSWORD}'
       - 'POSTGRES_USER=${DB_USERNAME}'
+    # Ports to expose to the host container
+    # 5432 is the default port for PostgreSQL
     ports:
       - '5432:5432'
+    # restart the docker container if we accidentally kill it
+    restart: always
