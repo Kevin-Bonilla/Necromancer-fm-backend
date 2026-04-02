@@ -3,6 +3,7 @@ package com.KevinBonilla.Necromancer_fm.domain.entity;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -90,5 +91,29 @@ public class Artist {
 
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Artist artist = (Artist) o;
+        return Objects.equals(id, artist.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Artist{" +
+                "id=" + id +
+                ", artistName='" + artistName + '\'' +
+                ", playcount=" + playcount +
+                ", artistStatus=" + artistStatus +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 }
